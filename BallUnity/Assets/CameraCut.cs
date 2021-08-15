@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace Roof
 {
-    public class CameraCut : game
+    public class CameraCut : MonoBehaviour
     {
        
         void Start()
