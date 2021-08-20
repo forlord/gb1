@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace Roof
 {
+
     public class CameraCut : MonoBehaviour
     {
        
@@ -16,6 +17,11 @@ namespace Roof
         void Update()
         {
 
+
+            if (Input.GetButtonDown("Fire3"))
+            {
+                Destroy(gameObject, .0f);
+            }
         }
     }
 }
