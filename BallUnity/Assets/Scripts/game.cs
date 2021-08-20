@@ -3,11 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 public  class game : MonoBehaviour
 {
-    public GameObject restart;
-    
     public Text Textcoin;
     public int coins;
     public GameObject TextDie;
@@ -15,10 +12,8 @@ public  class game : MonoBehaviour
 
     void Start()
     {
-        
-        WinText.SetActive(false);
-        restart.SetActive(false);
         TextDie.SetActive(false);
+        WinText.SetActive(false);
     }
     void OnTriggerEnter(Collider otherObj)
     {
@@ -43,7 +38,6 @@ public  class game : MonoBehaviour
             
             
             TextDie.SetActive(true);
-            restart.SetActive(true);
         }
         
         if (coins == 5)
@@ -55,7 +49,6 @@ public  class game : MonoBehaviour
         if (otherObj.gameObject.CompareTag("WinText"))
         {
             WinText.SetActive(true);
-            restart.SetActive(true);
             Destroy(gameObject, .0f);
             Debug.Log("Win!");
         }
