@@ -10,6 +10,9 @@ TagManager:
   - Money
   - wall
   - Cutscene
+  - dietext
+  - TextDie
+  - WinText
   layers:
   - Default
   - TransparentFX

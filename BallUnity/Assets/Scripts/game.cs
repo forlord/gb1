@@ -7,8 +7,14 @@ public  class game : MonoBehaviour
 {
     public Text Textcoin;
     public int coins;
-    
-    
+    public GameObject TextDie;
+    public GameObject WinText;
+
+    void Start()
+    {
+        TextDie.SetActive(false);
+        WinText.SetActive(false);
+    }
     void OnTriggerEnter(Collider otherObj)
     {
         
@@ -16,38 +22,37 @@ public  class game : MonoBehaviour
         {
             Destroy(gameObject, .0f);
         }   
-        if (otherObj.gameObject.tag == "Money")
+        if (otherObj.gameObject.CompareTag("Money"))
         {
             coins++;
             otherObj.gameObject.SetActive(false);
             Textcoin.text = coins.ToString()+"/5";
             
         }
-        if (otherObj.gameObject.tag == "Die" )
+
+        else if (otherObj.gameObject.CompareTag("Die"))
         {
-            try
-            {
-                
-                Debug.Log("А, это ты!");
+         
+                Debug.Log("Game over!");
                 Destroy(gameObject, .0f);
-
-            }
-            catch
-            {
-                
-                Debug.Log("Ты кто?!");
-
-            }
             
-
+            
+            TextDie.SetActive(true);
         }
+        
         if (coins == 5)
         {
             var wall = GameObject.FindWithTag("wall");
             Destroy(wall);
             Debug.Log("Собрал все!");
         }
-        if (otherObj.gameObject.tag == "boost")
+        if (otherObj.gameObject.CompareTag("WinText"))
+        {
+            WinText.SetActive(true);
+            Destroy(gameObject, .0f);
+            Debug.Log("Win!");
+        }
+        if (otherObj.gameObject.CompareTag("boost"))
         {
             var Die = GameObject.FindWithTag("Die");
             Destroy(Die);
